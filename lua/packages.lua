@@ -65,8 +65,11 @@ local packer = require('packer').startup(function(use)
     use 'williamboman/mason.nvim' -- LSP server manager
     use 'williamboman/mason-lspconfig.nvim' -- Mason integration with lspconfig
     use 'neovim/nvim-lspconfig' -- LSP support
+    -- use('jose-elias-alvarez/null-ls.nvim')
+    -- use('MunifTanjim/prettier.nvim')
+    use "astral-sh/ruff"
 
-    -- Debugging
+		-- Debugging
     use {
         'mfussenegger/nvim-dap', -- Debug Adapter Protocol
         'mfussenegger/nvim-dap-python', -- Python debugging
@@ -89,7 +92,13 @@ local packer = require('packer').startup(function(use)
     -- LaTeX Support
     use 'lervag/vimtex'
 
+    -- Smooth Scrolling
+   use "karb94/neoscroll.nvim"
+
+   -- Comments
+   use 'numToStr/Comment.nvim'
 end)
+
 -- Load plugin-specific configurations
 require('plugins/cmp')
 require('plugins/colors')
@@ -100,6 +109,10 @@ require('plugins/mason')
 require('plugins/telescope')
 require('plugins/treesitter')
 require('plugins/undotree')
+require('plugins/neoscroll')
+require('plugins/Comment')
+-- require('plugins/null-ls')
+-- require('plugins/prettier')
+require("plugins/ruff")
 
 return packer
-
