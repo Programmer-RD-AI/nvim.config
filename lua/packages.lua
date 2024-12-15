@@ -97,7 +97,13 @@ local packer = require('packer').startup(function(use)
 
    -- Comments
    use 'numToStr/Comment.nvim'
-end)
+
+   -- Integrated Terminaluse
+   use {"akinsho/toggleterm.nvim", tag = '*', config = function()
+       require("toggleterm").setup()
+   end}
+
+ end)
 
 -- Load plugin-specific configurations
 require('plugins/cmp')
