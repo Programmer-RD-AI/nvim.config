@@ -1,41 +1,68 @@
+-- Key mapping configuration
+-- Set leader key to space (defined in globals.lua)
 require('globals')
-vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
 
-vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv'")
-vim.keymap.set("v", "K", ":m '>-2<CR>gv=gv'")
+-- File explorer shortcut
+vim.keymap.set("n", "<leader>e", vim.cmd.Ex, {
+    desc = "Open file explorer"
+})
 
-vim.keymap.set("n", "J", "mzJ`z")
-vim.keymap.set("n", "<C-d>", "<C-d>zz")
-vim.keymap.set("n", "<C-u>", "<C-u>zz")
-vim.keymap.set("n", "n", "nzzzv")
-vim.keymap.set("n", "N", "Nzzzv")
+-- Basic editor improvements
+vim.keymap.set("n", "<leader>w", ":w<CR>", {
+    desc = "Save file"
+})
+vim.keymap.set("n", "<leader>q", ":q<CR>", {
+    desc = "Quit"
+})
 
-vim.keymap.set("x", "<leader>p", "\"_dp")
+-- Keep cursor centered when scrolling
+vim.keymap.set("n", "<C-d>", "<C-d>zz", {
+    desc = "Scroll down and center"
+})
+vim.keymap.set("n", "<C-u>", "<C-u>zz", {
+    desc = "Scroll up and center"
+})
 
-vim.keymap.set("n", "<leader>y", "\"+y")
-vim.keymap.set("v", "<leader>y", "\"+y")
-vim.keymap.set("n", "<leader>Y", "\"+Y")
+-- Keep cursor centered when searching
+vim.keymap.set("n", "n", "nzzzv", {
+    desc = "Next search result and center"
+})
+vim.keymap.set("n", "N", "Nzzzv", {
+    desc = "Previous search result and center"
+})
 
-vim.keymap.set("i", "<C-c>", "<Esc>")
+-- Better clipboard management
+vim.keymap.set("n", "<leader>y", "\"+y", {
+    desc = "Yank to system clipboard"
+})
+vim.keymap.set("v", "<leader>y", "\"+y", {
+    desc = "Yank selection to system clipboard"
+})
 
-vim.keymap.set("n", "Q", "<nop>")
--- fast scrolling
-vim.keymap.set('n', 'K', '9j')
-vim.keymap.set('n', 'L', '9k')
-vim.keymap.set('v', 'K', '9j')
-vim.keymap.set('v', 'L', '9k')
--- Mapping U to Redo.
-vim.keymap.set('', 'U', '<C-r>')
-vim.keymap.set('', '<C-r>', '<NOP>')
--- indent via Tab
-vim.keymap.set('n', '<Tab>', '>>_')
-vim.keymap.set('n', '<S-Tab>', '<<_')
-vim.keymap.set('v', '<Tab>', '>>_')
-vim.keymap.set('v', '<S-Tab>', '<<_')
-vim.keymap.set('i', '<Tab>', '\t')
-vim.keymap.set('i', '<S-Tab>', '\b')
--- window movement
-vim.keymap.set('', '<C-w>j', '<C-w>h')
-vim.keymap.set('', '<C-w>k', '<C-w>j')
-vim.keymap.set('', '<C-w>l', '<C-w>k')
-vim.keymap.set('', '<C-w>č', '<C-w>l')
+-- Better window navigation - use standard Vim keys
+-- <C-w>h, <C-w>j, <C-w>k, <C-w>l for navigation between windows
+
+-- ESC to clear search highlighting
+vim.keymap.set("n", "<Esc>", ":noh<CR>", {
+    desc = "Clear search highlighting"
+})
+
+-- Format code with LSP
+vim.keymap.set("n", "<leader>lf", ":lua vim.lsp.buf.format()<CR>", {
+    desc = "Format code"
+})
+
+-- Close buffer without closing window
+vim.keymap.set("n", "<leader>bd", ":bp<bar>sp<bar>bn<bar>bd<CR>", {
+    desc = "Close buffer"
+})
+
+-- Easier command access
+vim.keymap.set("n", ";", ":", {
+    desc = "Enter command mode"
+})
+
+-- Quick save and quit
+vim.keymap.set("n", "<leader>wq", ":wq<CR>", {
+    desc = "Save and quit"
+})

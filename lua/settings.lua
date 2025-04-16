@@ -1,22 +1,40 @@
+-- Basic settings for a clean, user-friendly Neovim experience
 vim.opt.guicursor = ""
+vim.opt.number = true -- Show line numbers
+vim.opt.relativenumber = true -- Show relative line numbers for easier navigation
 
-vim.opt.nu = true
+-- Indentation
+vim.opt.tabstop = 2 -- Number of spaces a tab counts for
+vim.opt.softtabstop = 2 -- Number of spaces a tab counts for when editing
+vim.opt.shiftwidth = 2 -- Number of spaces for each step of autoindent
+vim.opt.expandtab = true -- Convert tabs to spaces
+vim.opt.smartindent = true -- Smart autoindenting when starting a new line
 
-vim.opt.smartindent = true
-vim.opt.smartindent = true
-vim.opt.tabstop = 2
-vim.opt.shiftwidth = 2
+-- Search
+vim.opt.hlsearch = false -- Don't highlight all search matches
+vim.opt.incsearch = true -- Show matches as you type
+vim.opt.ignorecase = true -- Ignore case in search patterns
+vim.opt.smartcase = true -- Override ignorecase if search has uppercase
 
-vim.opt.swapfile = false
-vim.opt.backup = false
+-- Files
+vim.opt.swapfile = false -- Don't create swap files
+vim.opt.backup = false -- Don't create backup files
 vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
-vim.opt.undofile = true
+vim.opt.undofile = true -- Persistent undo history
 
-vim.opt.hlsearch = false
-vim.opt.incsearch = true
+-- UI improvements
+vim.opt.termguicolors = true -- True color support
+vim.opt.scrolloff = 8 -- Minimum number of screen lines above and below the cursor
+vim.opt.signcolumn = "yes" -- Always show the sign column
+vim.opt.colorcolumn = "80" -- Highlight column 80
+vim.opt.cursorline = true -- Highlight the current line
 
-vim.opt.termguicolors = true
+-- Performance
+vim.opt.updatetime = 50 -- Faster update time
 
-vim.opt.updatetime = 50
+-- Splitting behavior
+vim.opt.splitright = true -- Vertical splits open to the right
+vim.opt.splitbelow = true -- Horizontal splits open below
 
-vim.opt.colorcolumn = "80"
+-- Clipboard
+vim.opt.clipboard = "unnamedplus" -- Use system clipboard
