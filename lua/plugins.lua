@@ -83,5 +83,10 @@ require("lazy").setup({"bluz71/vim-moonfly-colors", {
     cmd = {"LazyGit", "LazyGitConfig", "LazyGitCurrentFile", "LazyGitFilter", "LazyGitFilterCurrentFile"},
     -- optional for floating window border decoration
     dependencies = {"nvim-lua/plenary.nvim"}
+}, -- Corrected line: changed }} to },
+-- Add Comment.nvim plugin
+{
+    'numToStr/Comment.nvim',
+    opts = {}
 }})
 
