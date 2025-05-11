@@ -78,5 +78,10 @@ require("lazy").setup({"bluz71/vim-moonfly-colors", {
             line_number_text = "Line %s out of %s"
         })
     end
+}, {
+    "kdheepak/lazygit.nvim",
+    cmd = {"LazyGit", "LazyGitConfig", "LazyGitCurrentFile", "LazyGitFilter", "LazyGitFilterCurrentFile"},
+    -- optional for floating window border decoration
+    dependencies = {"nvim-lua/plenary.nvim"}
 }})
 

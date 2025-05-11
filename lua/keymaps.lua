@@ -24,3 +24,7 @@ vim.keymap.set({'n', 'v'}, '<leader>y', '"*y', {
 vim.keymap.set({'n', 'v'}, '<leader>Y', '"+y', {
     desc = 'Copy to system clipboard (alternative)'
 })
+
+vim.keymap.set('n', '<leader>lg', '<cmd>LazyGit<cr>', {
+    desc = 'Open LazyGit'
+})
