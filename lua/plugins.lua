@@ -88,5 +88,26 @@ require("lazy").setup({"bluz71/vim-moonfly-colors", {
 {
     'numToStr/Comment.nvim',
     opts = {}
+}, {
+    'nvim-lualine/lualine.nvim',
+    dependencies = {'nvim-tree/nvim-web-devicons'},
+    config = function()
+        require('lualine').setup {}
+    end
+}, {
+    'nvim-treesitter/nvim-treesitter',
+    build = ":TSUpdate",
+    config = function()
+        require('nvim-treesitter.configs').setup {
+            ensure_installed = {"c", "lua", "vim", "vimdoc", "query", "javascript", "typescript", "python", "html",
+                                "css", "json", "yaml", "bash", "markdown", "markdown_inline"},
+            sync_install = false,
+            auto_install = true,
+            highlight = {
+                enable = true,
+                additional_vim_regex_highlighting = false
+            }
+        }
+    end
 }})
 
